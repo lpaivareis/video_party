@@ -1,25 +1,22 @@
 class PartiesController < ApplicationController
   before_action :set_party, only: %i[ show edit update destroy ]
+  after_action :add_new_view, only: :show
+  after_action :update_embeded_link, only: %i[create update]
 
-  # GET /parties or /parties.json
   def index
     @parties = Party.all
   end
 
-  # GET /parties/1 or /parties/1.json
   def show
   end
 
-  # GET /parties/new
   def new
     @party = Party.new
   end
 
-  # GET /parties/1/edit
   def edit
   end
 
-  # POST /parties or /parties.json
   def create
     @party = Party.new(party_params)
 
@@ -34,7 +31,6 @@ class PartiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /parties/1 or /parties/1.json
   def update
     respond_to do |format|
       if @party.update(party_params)
@@ -47,7 +43,6 @@ class PartiesController < ApplicationController
     end
   end
 
-  # DELETE /parties/1 or /parties/1.json
   def destroy
     @party.destroy
 
@@ -58,13 +53,21 @@ class PartiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_party
       @party = Party.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def party_params
-      params.require(:party).permit(:title, :embeded_link, :like, :dislike, :views, :timestamps)
+      params.require(:party).permit(:title, :embeded_link)
+    end
+
+    def add_new_view
+      @party.views += 1
+      @party.save
+    end
+
+    def update_embeded_link
+      @party.embeded_link = @party.embeded_link.gsub("watch?v=", "embed/")
+      @party.save
     end
 end
