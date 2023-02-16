@@ -17,9 +17,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_162115) do
   create_table "parties", force: :cascade do |t|
     t.string "title"
     t.string "embeded_link"
-    t.integer "like"
-    t.integer "dislike"
-    t.integer "views"
+    t.integer "like", default: 0
+    t.integer "dislike", default: 0
+    t.integer "views", default: 0
     t.string "timestamps"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
