@@ -67,7 +67,7 @@ class PartiesController < ApplicationController
     end
 
     def update_embeded_link
-      @party.embeded_link = @party.embeded_link.gsub("watch?v=", "embed/")
+      @party.embeded_link = @party.embeded_link.gsub("watch?v=", "embed/").split("&")[0]
       @party.save
     end
 end
