@@ -1,14 +1,51 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Parties</h1>
+<h1 class="text-center">Salas de videos</h1>
 
 <div id="parties">
-  <% @parties.each do |party| %>
-    <%= render party %>
-    <p>
-      <%= link_to "Show this party", party %>
-    </p>
-  <% end %>
+  <table class="table table-striped">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">ID</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Visualizações</th>
+        <th scope="col">Likes</th>
+        <th scope="col">Dislikes</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @parties.each do |party| %>
+        <tr class="text-center">
+          <td><%= party.id %></td>
+          <td><%= party.title %></td>
+          <td><%= party.views %></td>
+          <td><%= party.like %></td>
+          <td><%= party.dislike %></td>
+          <td>
+            <%= link_to party_path(party), class: "btn btn-success" do %>
+              <span>
+                <i class="bi bi-search"></i>
+              </span>
+            <%end%>
+
+            <%= link_to edit_party_path(party), class: "btn btn-primary" do %>
+              <span>
+                <i class="bi bi-pencil"></i>
+              </span>
+            <%end%>
+
+            <%= link_to party_path(party), method: :delete, class: "btn btn-danger" do %>
+              <span>
+                <i class="bi bi-trash"></i>
+              </span>
+            <%end%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
 </div>
 
-<%= link_to "New party", new_party_path %>
+<div class="m-4 text-end">
+  <%= link_to "Nova sala", new_party_path, class: "btn btn-primary text-end" %>
+</div>
