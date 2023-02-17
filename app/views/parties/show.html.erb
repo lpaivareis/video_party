@@ -2,9 +2,6 @@
 
 <%= render @party %>
 
-<div>
-  <%= link_to "Edit this party", edit_party_path(@party) %> |
-  <%= link_to "Back to parties", parties_path %>
-
-  <%= button_to "Destroy this party", @party, method: :delete %>
+<div class="m-4 text-end">
+  <%= link_to "Voltar a lista de salas", parties_path, class: "btn btn-primary" %>
 </div>
