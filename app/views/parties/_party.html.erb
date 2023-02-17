@@ -1,32 +1,14 @@
 <div id="<%= dom_id party %>">
-  <p>
-    <strong>Title:</strong>
-    <%= party.title %>
-  </p>
-
-  <p>
-    <strong>Embeded link:</strong>
-    <%= party.embeded_link %>
-  </p>
-
-  <p>
-    <strong>Like:</strong>
-    <%= party.like %>
-  </p>
-
-  <p>
-    <strong>Dislike:</strong>
-    <%= party.dislike %>
-  </p>
-
-  <p>
-    <strong>Views:</strong>
-    <%= party.views %>
-  </p>
-
-  <p>
-    <strong>Timestamps:</strong>
-    <%= party.timestamps %>
-  </p>
-
+  <div class="card">
+    <h5 class="card-title m-2 text-center"><%= party.title %></h5>
+    <div class="card-body m-2">
+      <iframe width="100%" height="600" src="<%= party.embeded_link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <p>Visualizações</p>
+          <p><%= party.views %></p>
+        </div>
+      </div>
+    </div>
+  <div>
 </div>
