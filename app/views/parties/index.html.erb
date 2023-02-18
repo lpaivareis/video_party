@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <h1 class="text-center">Salas de videos</h1>
 
 <div id="parties">
@@ -23,23 +21,28 @@
           <td><%= party.like %></td>
           <td><%= party.dislike %></td>
           <td>
-            <%= link_to party_path(party), class: "btn btn-success" do %>
-              <span>
-                <i class="bi bi-search"></i>
-              </span>
-            <%end%>
-
-            <%= link_to edit_party_path(party), class: "btn btn-primary" do %>
-              <span>
-                <i class="bi bi-pencil"></i>
-              </span>
-            <%end%>
-
-            <%= link_to party_path(party), method: :delete, class: "btn btn-danger" do %>
-              <span>
-                <i class="bi bi-trash"></i>
-              </span>
-            <%end%>
+            <div class="d-flex justify-content-around">
+              <div>
+                <%= link_to party_path(party), class: "btn btn-outline-success" do %>
+                  <span>
+                    <i class="bi bi-search"></i>
+                  </span>
+                <%end%>
+              </div>
+              <div>
+                <%= link_to edit_party_path(party), class: "btn btn-outline-primary" do %>
+                  <span>
+                    <i class="bi bi-pencil"></i>
+                  </span>
+                <%end%>
+              </div>
+              <div>
+                <%= button_to party, method: :delete, class: "btn btn-outline-danger", data: {confirm: "Are you sure?"} do %>
+                  <span>
+                    <i class="bi bi-trash"></i>
+                  </span>
+                <%end%>
+              </div>
           </td>
         </tr>
       <% end %>
