@@ -3,8 +3,6 @@ class CreateParties < ActiveRecord::Migration[7.0]
     create_table :parties do |t|
       t.string :title
       t.string :embeded_link
-      t.integer :like, default: 0
-      t.integer :dislike, default: 0
       t.integer :views, default: 0
       t.string :timestamps
 
