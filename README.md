@@ -1,24 +1,27 @@
-# README
+# Detalhes do projeto
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Objetivo
 
-Things you may want to cover:
+Este projeto é uma pequena aplicação para exibir salas de videos com videos embedados do YouTube.
 
-* Ruby version
+## Configuração
 
-* System dependencies
+Este projeto roda em **Ruby** na versão`3.0.2` utilizando **Rails** `7.0.4`. Se precisar você pode utilizar um gerenciador de versões para facilitar como o [ASDF](https://www.lucascaton.com.br/2020/02/17/instalacao-do-ruby-do-nodejs-no-ubuntu-linux-usando-asdf).
 
-* Configuration
+Neste projeto, estamos usando o PostgreSQL, se você precisar alterá-los para rodar em sua maquina local, você pode fazê-lo em [database.yml](config/database.yml).
 
-* Database creation
+Para executar o projeto siga os passos a abaixo:
 
-* Database initialization
+```console
+$ bundle install
+$ bin/rails db:create && db:migrate
+$ bin/rails server
+```
 
-* How to run the test suite
+Para qualidade de código e linter foi utilizado as gems rubocop, rubocop-rails e rubocop-performance. Você pode executar utilizando o comando abaixo:
 
-* Services (job queues, cache servers, search engines, etc.)
+```console
+$ bundle exec rubocop
+```
 
-* Deployment instructions
-
-* ...
+Para mais detalhes das gems utilizadas você pode consultar o arquivo [Gemfile](Gemfile)
