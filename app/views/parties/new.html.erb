@@ -1,9 +1,10 @@
-<h1>New party</h1>
+<div class="mb-5">
+  <%= link_to "Voltar a lista de salas", parties_path %>
+</div>
+
+<h1>Criar nova sala</h1>
 
 <%= render "form", party: @party %>
 
 <br>
 
-<div>
-  <%= link_to "Back to parties", parties_path %>
-</div>
