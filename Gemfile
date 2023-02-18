@@ -56,6 +56,15 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
   gem "byebug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Use rubocop for linting
+  gem "rubocop", "~> 1.42"
+
+  # Use rubocop-rails for linting
+  gem "rubocop-rails", "~> 2.17", ">= 2.17.4"
+
+  # Use rubocop-performance for linting
+  gem "rubocop-performance", "~> 1.15", ">= 1.15.2"
 end
 
 group :development do
