@@ -1,14 +1,12 @@
-<div id="<%= dom_id party %>">
-  <div class="card">
-    <h5 class="card-title m-2 text-center"><%= party.title %></h5>
-    <div class="card-body m-2">
-      <iframe width="100%" height="600" src="<%= party.embeded_link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <p>Visualizações</p>
-          <p><%= party.views %></p>
-        </div>
+<div class="mb-5 mt-5" id="<%= dom_id party %>">
+  <h3 class="mb-5 text-center"><%= party.title %></h5>
+  <div class="m-2">
+    <iframe width="100%" height="600" src="<%= party.embeded_link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <p>Visualizações</p>
+        <p><%= party.views %></p>
       </div>
     </div>
-  <div>
+  </div>
 </div>
