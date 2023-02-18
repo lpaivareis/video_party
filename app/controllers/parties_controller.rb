@@ -1,5 +1,5 @@
 class PartiesController < ApplicationController
-  before_action :set_party, only: %i[ show edit update destroy ]
+  before_action :set_party, only: %i[show edit update destroy]
   after_action :add_new_view, only: :show
   after_action :update_embeded_link, only: %i[create update]
 
@@ -7,15 +7,13 @@ class PartiesController < ApplicationController
     @parties = Party.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @party = Party.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @party = Party.new(party_params)
@@ -53,21 +51,22 @@ class PartiesController < ApplicationController
   end
 
   private
-    def set_party
-      @party = Party.find(params[:id])
-    end
 
-    def party_params
-      params.require(:party).permit(:title, :embeded_link)
-    end
+  def set_party
+    @party = Party.find(params[:id])
+  end
 
-    def add_new_view
-      @party.views += 1
-      @party.save
-    end
+  def party_params
+    params.require(:party).permit(:title, :embeded_link)
+  end
 
-    def update_embeded_link
-      @party.embeded_link = @party.embeded_link.gsub("watch?v=", "embed/").split("&")[0]
-      @party.save
-    end
+  def add_new_view
+    @party.views += 1
+    @party.save
+  end
+
+  def update_embeded_link
+    @party.embeded_link = @party.embeded_link.gsub("watch?v=", "embed/").split("&")[0]
+    @party.save
+  end
 end
